@@ -137,7 +137,7 @@ const NavigationBar = () => {
       </Navbar.Brand>
       <Navbar.Content
         enableCursorHighlight
-        activeColor="warning"
+        activeColor="primary"
         hideIn="xs"
         variant="highlight-rounded"
       >
@@ -185,7 +185,7 @@ const NavigationBar = () => {
               <Avatar
                 bordered
                 as="button"
-                color="warning"
+                color="primary"
                 size="md"
                 src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
               />
@@ -209,7 +209,7 @@ const NavigationBar = () => {
         {collapseItems.map((item, index) => (
           <Navbar.CollapseItem
             key={item}
-            activeColor="warning"
+            activeColor="primary"
             css={{
               color: index === collapseItems.length - 1 ? "$error" : "",
             }}
