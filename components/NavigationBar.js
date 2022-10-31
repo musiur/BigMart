@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import { useTheme as useNextTheme } from "next-themes";
 import CategoryNav from "./CategoryNav";
 
-
 export const SunIcon = ({
   fill = "currentColor",
   filled,
@@ -115,12 +114,29 @@ const NavigationBar = () => {
   const { isDark, type } = useTheme();
   const router = useRouter();
   const collapseItems = [
-    "Dashboard",
-    "Log Out",
+    {
+      link: "/",
+      name: "Home",
+    },
+    {
+      link: "/about",
+      name: "About",
+    },
+    {
+      link: "/contact",
+      name: "Contact",
+    }
   ];
 
   return (
-    <Navbar variant="sticky" maxWidth="fluid" style={{ zIndex: 1000 }}>
+    <Navbar
+      variant="sticky"
+      maxWidth="fluid"
+      style={{
+        zIndex: 1000,
+        background: `url(../static/images/backgrounds/tailwindtop.png)`,
+      }}
+    >
       <Navbar.Toggle showIn="xs" />
       <Navbar.Brand
         css={{
@@ -141,22 +157,13 @@ const NavigationBar = () => {
         hideIn="xs"
         variant="highlight-rounded"
       >
-        <Navbar.Link isActive={router.pathname.includes("/")} href="/">
-          Home
-        </Navbar.Link>
-        <CategoryNav />
-        <Navbar.Link
-          isActive={router.pathname.includes("/about")}
-          href="/about"
-        >
-          About
-        </Navbar.Link>
-        <Navbar.Link
-          isActive={router.pathname.includes("/contact")}
-          href="/contact"
-        >
-          Contact
-        </Navbar.Link>
+        {collapseItems.map((item, i) => {
+          return (
+            <Navbar.Link key={i} isActive={router.pathname.includes(item.link)} href={item.link}>
+              {item.name}
+            </Navbar.Link>
+          )
+        })}
       </Navbar.Content>
       <Navbar.Content
         css={{
@@ -208,22 +215,21 @@ const NavigationBar = () => {
       <Navbar.Collapse>
         {collapseItems.map((item, index) => (
           <Navbar.CollapseItem
-            key={item}
+            key={index}
             activeColor="primary"
-            css={{
-              color: index === collapseItems.length - 1 ? "$error" : "",
-            }}
-            isActive={index === 2}
+  
           >
             <Link
-              color="inherit"
-              css={{
-                minWidth: "100%",
-              }}
-              href="#"
-            >
-              {item}
-            </Link>
+                color="inherit"
+                css={{
+                  minWidth: "100%",
+                }}
+                href={item.link}
+                className="font-medium"
+                isActive={router.pathname.includes(item.link)}
+              >
+                {item.name}
+              </Link>
           </Navbar.CollapseItem>
         ))}
       </Navbar.Collapse>

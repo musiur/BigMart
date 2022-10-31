@@ -15,7 +15,7 @@ const CategoriesSlider = () => {
       </Text>
       <Swiper
         spaceBetween={30}
-        centeredSlides={true}
+        // centeredSlides={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -39,8 +39,8 @@ const CategoriesSlider = () => {
       >
         {tempArr.map((item, i) => {
           return (
-            <SwiperSlide key={i} className="py-5">
-              <Card css={{ w: "100%", h: "200px" }}>
+            <SwiperSlide key={i} className="pt-5 pb-10">
+              <Card css={{ w: "100%", h: "200px", border: "0" }} className="shadow hover:shadow-xl">
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                   <Col>
                     <Text
