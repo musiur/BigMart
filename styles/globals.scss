@@ -16,6 +16,9 @@
     @apply py-[3rem] lg:py-[5rem];
 }
 
+.heading {
+    @apply text-2xl lg:text-3xl 2xl:text-4xl;
+}
 .btn-primary {
     background-color: #0072F5;
     color: white;

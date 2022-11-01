@@ -1,17 +1,7 @@
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
 export const ProductCard = () => (
-  <Card css={{ w: "100%", h: "400px", border: "0" }}>
-    <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-      <Col>
-        <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-          New
-        </Text>
-        <Text h3 color="black">
-          Acme camera
-        </Text>
-      </Col>
-    </Card.Header>
+  <Card css={{ w: "100%", border: "0" }} className="max-h-[350px] min-h-[150px]">
     <Card.Body css={{ p: 0 }}>
       <Card.Image
         src="https://nextui.org/images/card-example-6.jpeg"
@@ -26,23 +16,13 @@ export const ProductCard = () => (
       css={{
         position: "absolute",
         bgBlur: "#ffffff66",
-        borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
         bottom: 0,
         zIndex: 1,
       }}
     >
-      <Row>
-        <Col>
-          <Text color="#000" size={12}>
-            Available soon.
-          </Text>
-          <Text color="#000" size={12}>
-            Get notified.
-          </Text>
-        </Col>
-        <Col>
-          <Row justify="flex-end">
-            <Button flat auto rounded color="secondary">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-1 w-full">
+        <div>Comming Soon</div>
+      <Button flat auto rounded color="primary">
               <Text
                 css={{ color: "inherit" }}
                 size={12}
@@ -52,9 +32,7 @@ export const ProductCard = () => (
                 Notify Me
               </Text>
             </Button>
-          </Row>
-        </Col>
-      </Row>
+      </div>
     </Card.Footer>
   </Card>
 );
