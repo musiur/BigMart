@@ -7,14 +7,31 @@ import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 import "swiper/css";
 
 const CategoriesSlider = () => {
-  const tempArr = [1, 2, 3, 4, 5, 6];
+  const categoriesArray = [
+    "Baking Goods",
+    "Breads",
+    "Breakfast",
+    "Canned",
+    "Dairy",
+    "Frozen Foods",
+    "Fruits and Vegetable",
+    "Hard Drinks",
+    "Health and Hygiene",
+    "Household",
+    "Meat",
+    "Others",
+    "Seafood",
+    "Snack Foods",
+    "Soft Drinks",
+    "Starchy Foods",
+  ];
   return (
     <div className="sectionG">
       <Text h1 size={40} b className="text-center mb-5">
         All Categories
       </Text>
       <Swiper
-        spaceBetween={30}
+        // spaceBetween={20}
         // centeredSlides={true}
         autoplay={{
           delay: 2500,
@@ -37,10 +54,13 @@ const CategoriesSlider = () => {
         }}
         className="mySwiper my-10"
       >
-        {tempArr.map((item, i) => {
+        {categoriesArray.map((item, i) => {
           return (
             <SwiperSlide key={i} className="pt-5 pb-10">
-              <Card css={{ w: "100%", h: "200px", border: "0" }} className="shadow hover:shadow-xl">
+              <Card
+                css={{ w: "100%", h: "200px", border: "0" }}
+                className="shadow hover:shadow-xl"
+              >
                 <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
                   <Col>
                     <Text
@@ -76,30 +96,16 @@ const CategoriesSlider = () => {
                     zIndex: 1,
                   }}
                 >
-                  <Row>
-                    <Col>
-                      <Text color="#000" size={12}>
-                        Available soon.
-                      </Text>
-                      <Text color="#000" size={12}>
-                        Get notified.
-                      </Text>
-                    </Col>
-                    <Col>
-                      <Row justify="flex-end">
-                        <Button flat auto rounded color="secondary">
-                          <Text
-                            css={{ color: "inherit" }}
-                            size={12}
-                            weight="bold"
-                            transform="uppercase"
-                          >
-                            Notify Me
-                          </Text>
-                        </Button>
-                      </Row>
-                    </Col>
-                  </Row>
+                  <Button flat auto rounded color="primary" className="mx-auto">
+                    <Text
+                      css={{ color: "white" }}
+                      size={12}
+                      weight="bold"
+                      transform="uppercase"
+                    >
+                      {item}
+                    </Text>
+                  </Button>
                 </Card.Footer>
               </Card>
             </SwiperSlide>

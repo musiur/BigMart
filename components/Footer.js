@@ -19,7 +19,6 @@ const Footer = () => {
           css={{
             position: "absolute",
             bgBlur: "#ffffff00",
-            borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
             top: 0,
             bottom:0,
             zIndex: 1,
